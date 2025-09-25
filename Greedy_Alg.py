@@ -107,7 +107,7 @@ def encode(input_string: str, encoding_table: list[str]) -> str:
             encoded.append(encoding_table[26])
         else:
             index = ord(char) - ord("A")
-            encoded.append(build_encoding_table[index])
+            encoded.append(encoding_table[index])
     return "".join(encoded)
 
 
@@ -125,7 +125,7 @@ def decode(encoded_string: str, huffman_root: Node) -> str:
             current = current.get_right()
         
         if current.get_symbol() is not None:
-            decoded.append(current.get_symbol)
+            decoded.append(current.get_symbol())
             current = huffman_root
     return "".join(decoded)
 
